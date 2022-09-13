@@ -65,7 +65,7 @@
         android:id="@+id/wordInput"
         android:layout_width="266dp"
         android:layout_height="47dp"
-        android:hint="hint"
+        android:hint="Type a 4-letter word"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.105"
