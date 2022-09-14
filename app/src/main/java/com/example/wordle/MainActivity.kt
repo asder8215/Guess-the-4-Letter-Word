@@ -1,5 +1,6 @@
 package com.example.wordle
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.InputFilter
@@ -8,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.google.android.material.textfield.TextInputEditText
 
 
@@ -24,9 +26,10 @@ class MainActivity : AppCompatActivity() {
         val fourthLetter = findViewById<TextView>(R.id.fourthLetter)
         val word = arrayOf(firstLetter, secondLetter, thirdLetter, fourthLetter)
 
-        //fetch editview input and submit button
+        //fetch editview input, submit and restart button
         val input = findViewById<TextInputEditText>(R.id.wordInput)
         val submitBtn = findViewById<Button>(R.id.submit)
+        val restartBtn = findViewById<Button>(R.id.restartBtn)
 
         //instantiates FourLetterWordList and gets a random word
         //counter is used for determining # of guesses and lost is to confirm
@@ -40,8 +43,12 @@ class MainActivity : AppCompatActivity() {
         //https://stackoverflow.com/questions/15961813/in-android-edittext-how-to-force-writing-uppercase
         input.filters = arrayOf<InputFilter>(AllCaps())
 
-        //upon submitting button, checks input and calls on checkGuess function to determine
-        //if user-inputted word is correct. Will only accept 4-letter inputs.
+        /**
+         * upon submitting button, checks input and calls on checkGuess function to determine
+         * if user-inputted word is correct. Will only accept 4-letter inputs.
+         * for restarting functionality, learned it from here:
+         * https://www.geeksforgeeks.org/different-ways-to-programmatically-restart-an-android-app-on-button-click/
+        **/
         submitBtn.setOnClickListener {
             if (input.text.toString().length == 4) {
                 checkGuess(word, input.text.toString(), randomWord)
@@ -51,6 +58,11 @@ class MainActivity : AppCompatActivity() {
                         Toast.LENGTH_LONG).show()
                     submitBtn.isEnabled = false
                     lost = false
+                    restartBtn.isVisible = true
+                    restartBtn.setOnClickListener{
+                        navigateUpTo(Intent(this@MainActivity, MainActivity::class.java))
+                        startActivity(intent)
+                    }
                 }
             }
             else {
@@ -61,6 +73,11 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Game over", Toast.LENGTH_LONG).show()
                 revealWord(word, randomWord)
                 submitBtn.isEnabled = false
+                restartBtn.isVisible = true
+                restartBtn.setOnClickListener{
+                    navigateUpTo(Intent(this@MainActivity, MainActivity::class.java))
+                    startActivity(intent)
+                }
             }
         }
     }

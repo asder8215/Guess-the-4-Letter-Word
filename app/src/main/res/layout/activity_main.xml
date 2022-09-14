@@ -128,4 +128,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.533" />
 
+    <Button
+        android:id="@+id/restartBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Restart"
+        android:backgroundTint="#3F51B5"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/secondLetter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
