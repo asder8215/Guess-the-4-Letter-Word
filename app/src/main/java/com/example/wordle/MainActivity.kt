@@ -1,56 +1,80 @@
 package com.example.wordle
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputFilter
+import android.text.InputFilter.AllCaps
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //const vals for all four textviews that display letters, fetch words from all 4
+        //textviews in an array
         val firstLetter = findViewById<TextView>(R.id.firstLetter)
         val secondLetter = findViewById<TextView>(R.id.secondLetter)
         val thirdLetter = findViewById<TextView>(R.id.thirdLetter)
         val fourthLetter = findViewById<TextView>(R.id.fourthLetter)
         val word = arrayOf(firstLetter, secondLetter, thirdLetter, fourthLetter)
 
+        //fetch editview input and submit button
         val input = findViewById<TextInputEditText>(R.id.wordInput)
         val submitBtn = findViewById<Button>(R.id.submit)
 
+        //instantiates FourLetterWordList and gets a random word
+        //counter is used for determining # of guesses and lost is to confirm
+        //if user guessed right at the end.
         val fourLetterWordList = FourLetterWordList
         val randomWord = fourLetterWordList.getRandomFourLetterWord()
         var counter = 0
         var lost = true
 
-            submitBtn.setOnClickListener {
-                if (input.text.toString().length == 4) {
-                    checkGuess(word, input.text.toString(), randomWord)
-                    counter++
-                    if (input.text.toString() == randomWord) {
-                        Toast.makeText(this, "You guessed the word!",
-                            Toast.LENGTH_LONG).show()
-                        submitBtn.isEnabled = false
-                        lost = false
-                    }
-                }
-                else {
-                    Toast.makeText(
-                        this, "Please input a 4 letter word",
-                        Toast.LENGTH_SHORT).show()
-                }
-                if(counter == 3 && lost){
-                    Toast.makeText(this, "Game over", Toast.LENGTH_LONG).show()
-                    revealWord(word, randomWord)
+        //found out how to get make all letters cap no matter what here:
+        //https://stackoverflow.com/questions/15961813/in-android-edittext-how-to-force-writing-uppercase
+        input.filters = arrayOf<InputFilter>(AllCaps())
+
+        //upon submitting button, checks input and calls on checkGuess function to determine
+        //if user-inputted word is correct. Will only accept 4-letter inputs.
+        submitBtn.setOnClickListener {
+            if (input.text.toString().length == 4) {
+                checkGuess(word, input.text.toString(), randomWord)
+                counter++
+                if (input.text.toString() == randomWord) {
+                    Toast.makeText(this, "You guessed the word!",
+                        Toast.LENGTH_LONG).show()
                     submitBtn.isEnabled = false
+                    lost = false
                 }
             }
-
+            else {
+                Toast.makeText(this, "Please input a 4 letter word",
+                    Toast.LENGTH_SHORT).show()
+            }
+            if(counter == 3 && lost){
+                Toast.makeText(this, "Game over", Toast.LENGTH_LONG).show()
+                revealWord(word, randomWord)
+                submitBtn.isEnabled = false
+            }
+        }
     }
+
+    /*
+     * Changes the textview letters to display:
+     *   - Green if letter is correct and in right position
+     *   - Yellow if letter exist in word but not in right position
+     *   - Red if letter does not exist in word
+     * @param word - array of TextViews that separately makes up one letter for the four lettered-word
+     * @param guess - given by user-inputted word from EditView
+     * @param wordToGuess - the real word or answer to the Wordle game
+     */
+
     private fun checkGuess(word: Array<TextView>, guess: String, wordToGuess: String){
         for(i in 0..3){
             if(guess[i] == wordToGuess[i]){
@@ -67,6 +91,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    /* At the end of three guesses: display the actual word
+     * (if user did not guess it in the third try)
+     * @param word - array of TextViews that separately makes up one letter for the four lettered-word
+     * @param wordToGuess - the real word or answer to the Wordle game
+     */
     private fun revealWord(word: Array<TextView>, wordToGuess: String){
         for(i in 0..3){
             word[i].text = wordToGuess.subSequence(i, i + 1)
