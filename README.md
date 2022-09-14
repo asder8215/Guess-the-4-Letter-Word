@@ -1,4 +1,4 @@
-# Android Project 1 - *Name of App Here*
+# Android Project 1 - Guess the 4 Letter Word
 
 Submitted by: Mahdi Ali-Raihan
 
@@ -32,10 +32,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='=demo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+GIF created with Ezgif  
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
@@ -44,6 +44,8 @@ GIF created with ...
 ## Notes
 
 Describe any challenges encountered while building the app.
+
+Restarting the app was one thing that challenged me since I thought I could call the function onCreate() to redo the whole app, but it doesn't work like that. Additionally, retrieving inputs from EditView and checking the guess from the 4 separate TextViews was another challenge (I created my own version of checkGuess() method albeit similar to the one from CodePath).
 
 ## License
 
