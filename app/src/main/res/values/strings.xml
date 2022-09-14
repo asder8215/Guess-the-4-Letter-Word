@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Wordle</string>
+    <string name="app_name">Guess the Four Letter Word</string>
     <string name = "rulesOfWordle">Rules of this game: \n 1) Type a 4-letter word in uppercase format and press submit. \n
 2) Green background over the letter indicates that the correct letter in the position. \n
 3) Yellow indicates that the letter exist in the word, but it is not in the correct spot. \n
