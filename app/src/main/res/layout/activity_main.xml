@@ -12,39 +12,48 @@
         android:layout_width="72dp"
         android:layout_height="65dp"
         android:layout_marginStart="16dp"
-        android:text=""
-        android:textColor="@color/white"
         android:background="#FFE5D3B3"
+        android:fontFamily="@font/helvetica"
+        android:text=""
+        android:textAlignment="center"
+        android:textSize="50sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.34" />
+        app:layout_constraintVertical_bias="0.283" />
 
     <TextView
         android:id="@+id/secondLetter"
         android:layout_width="72dp"
         android:layout_height="65dp"
         android:layout_marginStart="32dp"
-        android:text=""
-        android:textColor="@color/white"
         android:background="#FFE5D3B3"
+        android:fontFamily="@font/helvetica"
+        android:text=""
+        android:textAlignment="center"
+        android:textSize="50sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/firstLetter"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.34" />
+        app:layout_constraintVertical_bias="0.283" />
 
     <TextView
         android:id="@+id/thirdLetter"
         android:layout_width="72dp"
         android:layout_height="65dp"
         android:layout_marginStart="32dp"
-        android:text=""
-        android:textColor="@color/white"
         android:background="#FFE5D3B3"
+        android:fontFamily="@font/helvetica"
+        android:text=""
+        android:textAlignment="center"
+        android:textSize="50sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/secondLetter"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.34" />
+        app:layout_constraintVertical_bias="0.283" />
 
     <TextView
         android:id="@+id/fourthLetter"
@@ -52,20 +61,24 @@
         android:layout_height="65dp"
         android:layout_marginStart="16dp"
         android:background="#FFE5D3B3"
+        android:fontFamily="@font/helvetica"
         android:text=""
+        android:textAlignment="center"
+        android:textSize="50sp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.407"
         app:layout_constraintStart_toEndOf="@+id/thirdLetter"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.34" />
+        app:layout_constraintVertical_bias="0.283" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/wordInput"
         android:layout_width="266dp"
         android:layout_height="47dp"
         android:hint="Type a 4-letter word"
+        android:fontFamily="@font/helvetica"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.105"
@@ -84,5 +97,35 @@
         app:layout_constraintStart_toEndOf="@+id/wordInput"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="376dp"
+        android:layout_height="373dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/helvetica"
+        android:text="@string/rulesOfWordle"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/wordInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/secondLetter"
+        app:layout_constraintVertical_bias="0.37" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="281dp"
+        android:layout_height="71dp"
+        android:fontFamily="@font/helvetica"
+        android:text="Wordle"
+        android:textAlignment="center"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/secondLetter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.533" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

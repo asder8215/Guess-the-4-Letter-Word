@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                     counter++
                     if (input.text.toString() == randomWord) {
                         Toast.makeText(this, "You guessed the word!",
-                            Toast.LENGTH_SHORT).show()
+                            Toast.LENGTH_LONG).show()
                         submitBtn.isEnabled = false
                         lost = false
                     }
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT).show()
                 }
                 if(counter == 3 && lost){
-                    Toast.makeText(this, "Game over", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Game over", Toast.LENGTH_LONG).show()
                     revealWord(word, randomWord)
                     submitBtn.isEnabled = false
                 }
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         for(i in 0..3){
             if(guess[i] == wordToGuess[i]){
                 word[i].text = guess.subSequence(i, i + 1)
-                word[i].setBackgroundColor(Color.parseColor("#964B00"))
+                word[i].setBackgroundColor(Color.parseColor("#00FF00"))
             }
             else if(guess[i] in wordToGuess){
                 word[i].text = guess.subSequence(i, i + 1)
