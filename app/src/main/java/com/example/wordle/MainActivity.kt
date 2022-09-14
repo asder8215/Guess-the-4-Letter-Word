@@ -1,5 +1,6 @@
 package com.example.wordle
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -14,16 +15,18 @@ import com.google.android.material.textfield.TextInputEditText
 
 
 class MainActivity : AppCompatActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         //const vals for all four textviews that display letters, fetch words from all 4
-        //textviews in an array
+        //textviews in an array. answer textview will display answer or tell user if they got word right.
         val firstLetter = findViewById<TextView>(R.id.firstLetter)
         val secondLetter = findViewById<TextView>(R.id.secondLetter)
         val thirdLetter = findViewById<TextView>(R.id.thirdLetter)
         val fourthLetter = findViewById<TextView>(R.id.fourthLetter)
+        val answer = findViewById<TextView>(R.id.answer)
         val word = arrayOf(firstLetter, secondLetter, thirdLetter, fourthLetter)
 
         //fetch editview input, submit and restart button
@@ -56,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                 if (input.text.toString() == randomWord) {
                     Toast.makeText(this, "You guessed the word!",
                         Toast.LENGTH_LONG).show()
+                    answer.text = "You got the word right!"
                     submitBtn.isEnabled = false
                     lost = false
                     restartBtn.isVisible = true
@@ -71,7 +75,7 @@ class MainActivity : AppCompatActivity() {
             }
             if(counter == 3 && lost){
                 Toast.makeText(this, "Game over", Toast.LENGTH_LONG).show()
-                revealWord(word, randomWord)
+                answer.text = "The actual answer is $randomWord"
                 submitBtn.isEnabled = false
                 restartBtn.isVisible = true
                 restartBtn.setOnClickListener{
@@ -108,16 +112,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    /* At the end of three guesses: display the actual word
-     * (if user did not guess it in the third try)
-     * @param word - array of TextViews that separately makes up one letter for the four lettered-word
-     * @param wordToGuess - the real word or answer to the Wordle game
-     */
-    private fun revealWord(word: Array<TextView>, wordToGuess: String){
-        for(i in 0..3){
-            word[i].text = wordToGuess.subSequence(i, i + 1)
-            word[i].setBackgroundColor(Color.parseColor("#964B00"))
-        }
-    }
+//    /* At the end of three guesses: display the actual word
+//     * (if user did not guess it in the third try)
+//     * @param word - array of TextViews that separately makes up one letter for the four lettered-word
+//     * @param wordToGuess - the real word or answer to the Wordle game
+//     */
+//    private fun revealWord(word: Array<TextView>, wordToGuess: String){
+//        for(i in 0..3){
+//            word[i].text = wordToGuess.subSequence(i, i + 1)
+//            word[i].setBackgroundColor(Color.parseColor("#964B00"))
+//        }
+//    }
 
 }

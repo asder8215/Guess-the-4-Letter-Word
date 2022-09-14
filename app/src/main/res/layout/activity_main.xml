@@ -11,49 +11,49 @@
         android:id="@+id/firstLetter"
         android:layout_width="72dp"
         android:layout_height="65dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:background="#FFE5D3B3"
         android:fontFamily="@font/helvetica"
         android:text=""
         android:textAlignment="center"
-        android:textSize="50sp"
         android:textColor="@color/white"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.283" />
+        app:layout_constraintVertical_bias="0.605" />
 
     <TextView
         android:id="@+id/secondLetter"
         android:layout_width="72dp"
         android:layout_height="65dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="28dp"
         android:background="#FFE5D3B3"
         android:fontFamily="@font/helvetica"
         android:text=""
         android:textAlignment="center"
-        android:textSize="50sp"
         android:textColor="@color/white"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/firstLetter"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.283" />
+        app:layout_constraintVertical_bias="0.605" />
 
     <TextView
         android:id="@+id/thirdLetter"
         android:layout_width="72dp"
         android:layout_height="65dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="28dp"
         android:background="#FFE5D3B3"
         android:fontFamily="@font/helvetica"
         android:text=""
         android:textAlignment="center"
-        android:textSize="50sp"
         android:textColor="@color/white"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/secondLetter"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.283" />
+        app:layout_constraintVertical_bias="0.605" />
 
     <TextView
         android:id="@+id/fourthLetter"
@@ -64,14 +64,14 @@
         android:fontFamily="@font/helvetica"
         android:text=""
         android:textAlignment="center"
-        android:textSize="50sp"
         android:textColor="@color/white"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintHorizontal_bias="0.37"
         app:layout_constraintStart_toEndOf="@+id/thirdLetter"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.283" />
+        app:layout_constraintVertical_bias="0.605" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/wordInput"
@@ -100,44 +100,60 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="376dp"
-        android:layout_height="373dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="369dp"
+        android:layout_height="254dp"
+        android:layout_marginBottom="296dp"
         android:fontFamily="@font/helvetica"
         android:text="@string/rulesOfWordle"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/wordInput"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintHorizontal_bias="0.404"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondLetter"
-        app:layout_constraintVertical_bias="0.37" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="281dp"
-        android:layout_height="71dp"
+        android:layout_width="290dp"
+        android:layout_height="103dp"
         android:fontFamily="@font/helvetica"
-        android:text="Wordle"
+        android:text="Guess the 4 Letter Word"
         android:textAlignment="center"
-        android:textSize="60sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/secondLetter"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.533" />
+        app:layout_constraintVertical_bias="0.018" />
 
     <Button
         android:id="@+id/restartBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Restart"
+        android:layout_marginBottom="104dp"
         android:backgroundTint="#3F51B5"
+        android:text="Restart"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/secondLetter"
+        app:layout_constraintBottom_toTopOf="@+id/wordInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/secondLetter"
+        app:layout_constraintVertical_bias="0.645" />
+
+    <TextView
+        android:id="@+id/answer"
+        android:layout_width="303dp"
+        android:layout_height="57dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:fontFamily="@font/helvetica"
+        app:layout_constraintBottom_toTopOf="@+id/wordInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/restartBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
