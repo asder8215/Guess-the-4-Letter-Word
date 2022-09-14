@@ -112,16 +112,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-//    /* At the end of three guesses: display the actual word
-//     * (if user did not guess it in the third try)
-//     * @param word - array of TextViews that separately makes up one letter for the four lettered-word
-//     * @param wordToGuess - the real word or answer to the Wordle game
-//     */
-//    private fun revealWord(word: Array<TextView>, wordToGuess: String){
-//        for(i in 0..3){
-//            word[i].text = wordToGuess.subSequence(i, i + 1)
-//            word[i].setBackgroundColor(Color.parseColor("#964B00"))
-//        }
-//    }
+
 
 }
